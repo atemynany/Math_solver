@@ -1,6 +1,6 @@
 # Lean build artifacts
-.lake/
-lake-manifest.json
+.lean/.lake/
+.lean/lake-manifest.json
 
 # LaTeX auxiliary files
 *.aux

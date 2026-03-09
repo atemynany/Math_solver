@@ -11,16 +11,16 @@ When asked to formalize a proof, follow these steps:
 Read the problem statement from `input/<name>.md`
 
 ### Step 2: Create Lean Proof
-Create `MathSolver/<Category>/<Name>.lean`:
+Create `.lean/MathSolver/<Category>/<Name>.lean`:
 - Import required Mathlib modules
 - Define necessary types/structures
 - State theorem with full type signatures
 - Prove using Lean 4 tactics
-- Add the import to `MathSolver.lean`
+- Add the import to `.lean/MathSolver.lean`
 
 ### Step 3: Verify Build
 ```bash
-lake build
+cd .lean && lake build
 ```
 Fix any errors until build succeeds.
 
@@ -49,8 +49,8 @@ Copy and use this:
 
 ```
 Read `input/<PROBLEM>.md` and:
-1. Create Lean proof in `MathSolver/<NAME>.lean`
-2. Run `lake build` to verify
+1. Create Lean proof in `.lean/MathSolver/<NAME>.lean`
+2. Run `cd .lean && lake build` to verify
 3. Generate `output/tex/<NAME>.tex` with theorem + Lean code
 4. Compile with `./scripts/compile_tex.sh output/tex/<NAME>.tex`
 5. Commit changes
@@ -116,8 +116,16 @@ theorem theorem_name
 
 ## File Structure
 ```
+AGENTS.md        → AI instructions (this file)
+README.md        → Project overview
+.lean/
+  lakefile.lean  → Lean build config
+  lean-toolchain → Lean version
+  MathSolver.lean → Root module
+  MathSolver/    → Lean proofs (AI generates)
 input/           → Problem statements (you write)
-MathSolver/      → Lean proofs (AI generates)
 output/tex/      → LaTeX source (AI generates)
 output/pdf/      → Compiled PDFs (script generates)
+references/      → PDF context
+scripts/         → Build scripts
 ```
