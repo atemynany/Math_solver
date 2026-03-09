@@ -1,0 +1,6 @@
+# References
+
+Place PDF files here for context.
+
+These files are gitignored by default (large files).
+To track specific PDFs, use `git add -f references/filename.pdf`

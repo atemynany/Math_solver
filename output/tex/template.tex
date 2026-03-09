@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Lean code styling
+\lstdefinelanguage{Lean}{
+  keywords={theorem,lemma,def,let,in,where,by,have,show,calc,sorry,import,open,namespace,end,example,variable,axiom,structure,class,instance,inductive},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={ℝ,ℕ,∀,∃,→,←,↔,•,∧,∨,¬},
+  ndkeywordstyle=\color{purple},
+  comment=[l]{--},
+  morecomment=[s]{/-}{-/},
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{red},
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  showstringspaces=false,
+}
+
+\lstset{language=Lean}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+
+\title{Physics Proof: [Title]}
+\author{Formalized with Lean 4}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem Statement}
+
+% Describe the physics problem in natural language
+
+\section{Mathematical Formulation}
+
+% LaTeX equations for the formal statement
+\begin{theorem}[Newton's Second Law]
+For a particle of mass $m > 0$ subject to force $\vb{F}$ with acceleration $\vb{a}$:
+\[
+\vb{F} = m \vb{a}
+\]
+\end{theorem}
+
+\section{Lean Formalization}
+
+\begin{lstlisting}
+theorem newton_second_law
+    (m : ℝ) (a : ℝ → Vec3) (F : ℝ → Vec3)
+    (hm : m > 0)
+    (h : ∀ t, F t = m • a t) :
+    ∀ t, (1 / m) • F t = a t := by
+  intro t
+  rw [h t]
+  rw [smul_smul]
+  simp [ne_of_gt hm]
+\end{lstlisting}
+
+\section{Proof Explanation}
+
+% Natural language explanation of the proof steps
+
+\begin{proof}
+The proof follows directly from the definition...
+\end{proof}
+
+\section{References}
+
+\begin{itemize}
+  \item Mathlib4: \url{https://leanprover-community.github.io/mathlib4_docs/}
+\end{itemize}
+
+\end{document}

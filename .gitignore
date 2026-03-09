@@ -1,0 +1,26 @@
+# Lean build artifacts
+.lake/
+lake-manifest.json
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Generated PDFs (compile locally)
+output/pdf/*.pdf
+
+# References (large files)
+references/*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+*.swp
