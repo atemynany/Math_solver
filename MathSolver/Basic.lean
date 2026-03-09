@@ -5,7 +5,6 @@
 
 import Mathlib.Analysis.InnerProductSpace.Basic
 import Mathlib.Analysis.Calculus.Deriv.Basic
-import Mathlib.Analysis.SpecialFunctions.Integrals
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
 
 open scoped RealInnerProductSpace
@@ -34,17 +33,19 @@ theorem newton_second_law
   rw [smul_smul]
   simp [ne_of_gt hm]
 
-/-- Template: Add your physics theorems below
-    1. State the theorem with full type signatures
-    2. Add `sorry` as placeholder
-    3. Let AI fill in the proof
--/
+/-
+Template: Add your physics theorems below
+1. State the theorem with full type signatures
+2. Add `sorry` as placeholder
+3. Let AI fill in the proof
 
--- Example placeholder for conservation of energy
--- theorem conservation_of_energy
---     (KE PE : ℝ → ℝ) (t₁ t₂ : ℝ)
---     (h_closed : ∀ t, deriv (fun t => KE t + PE t) t = 0) :
---     KE t₁ + PE t₁ = KE t₂ + PE t₂ := by
---   sorry
+Example placeholder for conservation of energy:
+
+theorem conservation_of_energy
+    (KE PE : ℝ → ℝ) (t₁ t₂ : ℝ)
+    (h_closed : ∀ t, deriv (fun t => KE t + PE t) t = 0) :
+    KE t₁ + PE t₁ = KE t₂ + PE t₂ := by
+  sorry
+-/
 
 end Physics
